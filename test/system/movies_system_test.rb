@@ -22,4 +22,16 @@ class MoviesSystemTest < ApplicationSystemTestCase
     visit movie_path(movie.id)
     assert_text "Other Movie"
   end
+
+  test "visiting the index page" do
+    movie1 = Movie.create(title: "Parasite", director: "Bong Joon-ho")
+    movie2 = Movie.create(title: "Titanic", director: "James Cameron")
+
+    visit "/movies"
+
+    assert_text "Parasite"
+    assert_text "Bong Joon-ho"
+    assert_text "Titanic"
+    assert_text "James Cameron"
+  end
 end
