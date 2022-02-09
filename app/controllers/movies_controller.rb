@@ -16,4 +16,20 @@ class MoviesController < ApplicationController
 
     render locals: { movie: movie }
   end
+
+  def create
+    movie = Movie.new(movie_params)
+
+    if movie.save
+      redirect_to movie
+    else
+      render "new", locals: { movie: movie }
+    end
+  end
+
+  private
+
+  def movie_params
+    params.require(:movie).permit(:title, :director, :year)
+  end
 end

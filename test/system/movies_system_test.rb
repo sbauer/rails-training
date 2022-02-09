@@ -46,4 +46,17 @@ class MoviesSystemTest < ApplicationSystemTestCase
 
     assert_selector ".form"
   end
+
+  test "creating a new movie" do
+    visit new_movie_path
+
+    fill_in "Title", with: "A New Movie"
+
+    click_on "Create"
+
+    assert_text "A New Movie"
+
+    movie = Movie.order(id: :desc).first
+    assert_equal "A New Movie", movie.title
+  end
 end
