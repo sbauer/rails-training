@@ -10,4 +10,10 @@ class MoviesController < ApplicationController
 
     render locals: { movie: movie }
   end
+
+  def new
+    movie = Movie.new
+
+    render locals: { movie: movie }
+  end
 end
