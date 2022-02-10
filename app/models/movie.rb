@@ -1,4 +1,9 @@
 class Movie < ApplicationRecord
+  enum :color_format => {
+    :color => 0,
+    :black_and_white => 1
+  }
+
   validates_presence_of :title
 
   def self.titles
