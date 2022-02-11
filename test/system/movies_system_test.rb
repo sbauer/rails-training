@@ -6,7 +6,8 @@ class MoviesSystemTest < ApplicationSystemTestCase
     # when I visit /movies/1
     # I see the title of the movie "Parasite"
     # I also see the name of the director "Bong Joon-ho"
-    movie = create(:movie, title: "Parasite", director: "Bong Joon-hoo")
+    director = create(:director, name: "Bong Joon-ho")
+    movie = create(:movie, title: "Parasite", director: director)
 
     visit movie_path(movie.id)
     assert_text "Parasite"
@@ -24,8 +25,10 @@ class MoviesSystemTest < ApplicationSystemTestCase
   end
 
   test "visiting the index page" do
-    movie1 = create(:movie, title: "Parasite", director: "Bong Joon-ho")
-    movie2 = create(:movie, title: "Titanic", director: "James Cameron")
+    director1 = create(:director, name: "Bong Joon-ho")
+    director2 = create(:director, name: "James Cameron")
+    movie1 = create(:movie, title: "Parasite", director: director1)
+    movie2 = create(:movie, title: "Titanic", director: director2)
 
     visit "/movies"
 
@@ -48,9 +51,13 @@ class MoviesSystemTest < ApplicationSystemTestCase
   end
 
   test "creating a new movie" do
+    director = create(:director, name: "Nobody in Particular")
+
     visit new_movie_path
 
     fill_in "Title", with: "A New Movie"
+
+    select "Nobody in Particular", from: "Director"
 
     click_on "Create"
 

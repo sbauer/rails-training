@@ -3,7 +3,7 @@
 <dl>
   <% movies.each do |movie| %>
     <dt><%= movie.title %></dt>
-    <dd>directed by <%= movie.director %></dd>
+    <dd>directed by <%= movie.director&.name %></dd>
   <% end %>
 </dl>
 

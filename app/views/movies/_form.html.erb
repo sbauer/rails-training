@@ -2,8 +2,8 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br>
-  <%= f.label :director %>
-  <%= f.text_field :director %>
+  <%= f.label :director_id %>
+  <%= f.collection_select :director_id, Director.all, :id, :name, prompt: "Pick a director" %>
   <br>
   <%= f.label :year %>
   <%= f.text_field :year %>
