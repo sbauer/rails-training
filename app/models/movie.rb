@@ -6,6 +6,11 @@ class Movie < ApplicationRecord
 
   validates_presence_of :title
 
+  belongs_to :director
+  # * there is a class called Director - override with class_name
+  # * there is a column called director_id on this model's table
+  # * that column refers to the id column on directors
+
   def self.titles
     # all.map { |movie| movie.title }
     # or
