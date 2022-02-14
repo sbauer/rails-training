@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class DirectorsTest < ApplicationSystemTestCase
   setup do
-    @director = directors(:one)
+    @director = create(:director)
   end
 
   test "visiting the index" do

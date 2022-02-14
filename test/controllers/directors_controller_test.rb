@@ -2,7 +2,7 @@ require 'test_helper'
 
 class DirectorsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @director = directors(:one)
+    @director = create(:director)
   end
 
   test "should get index" do
