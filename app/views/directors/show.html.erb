@@ -2,17 +2,17 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @director.name %>
+  <%= director.name %>
 </p>
 
 <p>
   <strong>Age:</strong>
-  <%= @director.age %>
+  <%= director.age %>
 </p>
 
-<%= link_to 'Edit', edit_director_path(@director) %> |
+<%= link_to 'Edit', edit_director_path(director) %> |
 <%= link_to 'Back', directors_path %>
 
 <h4>Movies</h4>
 
-<%= render "movies", movies: @movies %>
+<%= render "movies", movies: movies %>
