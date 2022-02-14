@@ -8,6 +8,7 @@ class DirectorsController < ApplicationController
 
   # GET /directors/1 or /directors/1.json
   def show
+    @movies = @director.movies.to_a
   end
 
   # GET /directors/new
