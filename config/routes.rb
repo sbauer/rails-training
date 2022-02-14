@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   patch "/movies/:id", to: "movies#update"
   get "/movies/:id/edit", to: "movies#edit", as: "edit_movie"
   delete "/movies/:id", to: "movies#destroy"
+
+  resources :directors
 end
