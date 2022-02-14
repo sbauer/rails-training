@@ -1,4 +1,4 @@
 <h3><%= movie.title %></h3>
-<h4><%= movie.director.name %></h4>
+<h4><%= movie.director&.name %></h4>
 
 <%= button_to "Edit Movie", edit_movie_path(movie.id), method: :get %>

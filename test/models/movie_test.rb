@@ -13,6 +13,22 @@ class MovieTest < ActiveSupport::TestCase
     refute movie.valid?
   end
 
+  test "passing an existing director_name will attach a director" do
+    existing_director = create(:director)
+    movie = build(:movie, director_name: existing_director.name)
+
+    assert movie.valid?
+    assert_equal existing_director.id, movie.director.id
+  end
+
+  test "passing a new director name will attach a new director" do
+    movie = build(:movie, director_name: "Ed Wood")
+
+    assert movie.valid?
+    refute movie.director.persisted?
+    assert_equal "Ed Wood", movie.director.name
+  end
+
   # Make a method that returns an array of just movie titles.
   #
   test "lists movie titles" do

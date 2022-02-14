@@ -3,7 +3,8 @@
   <%= f.text_field :title %>
   <br>
   <%= f.label :director_id %>
-  <%= f.collection_select :director_id, Director.all, :id, :name, prompt: "Pick a director" %>
+  <%= f.collection_select :director_id, Director.all, :id, :name, include_blank: "Pick a director" %>
+  or enter by name: <%= f.text_field :director_name %>
   <br>
   <%= f.label :year %>
   <%= f.text_field :year %>
