@@ -82,4 +82,18 @@ class MoviesSystemTest < ApplicationSystemTestCase
 
     assert_text "Edited Movie"
   end
+
+  test "deleting a movie" do
+    movie = create(:movie)
+
+    visit movie_path(movie.id)
+
+    click_on "Delete Movie"
+
+    accept_confirm
+
+    assert_current_path movies_path
+
+    refute Movie.exists?(movie.id)
+  end
 end
