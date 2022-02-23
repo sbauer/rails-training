@@ -69,4 +69,13 @@ class MovieTest < ActiveSupport::TestCase
 
     assert_equal 1, count
   end
+
+  test "rerelease returns a copy of the original movie with a new year" do
+    original_movie = create(:movie, year: "1990")
+
+    new_release = original_movie.rerelease(year: "2022")
+
+    assert_equal original_movie.title, new_release.title
+    assert_equal "2022", new_release.year
+  end
 end
